@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Scoreboard from "./Scoreboard";
 import PokeList from "./PokeList";
-import RandomizeArray from "../utils/RandomizeArray";
+import randomizeArray from "../utils/RandomizeArray";
 
 const Game = (props) => {
   const [pokemons, setPokemons] = useState([]);
@@ -13,7 +13,7 @@ const Game = (props) => {
     if (!rememberedPokemons.includes(id)) {
       setRememberedPokemons((prevState) => [...prevState, id]);
       setCurrentScore((prevState) => prevState + 1);
-      setPokemons((prevState) => RandomizeArray(prevState));
+      setPokemons((prevState) => randomizeArray(prevState));
     } else {
       if (currentScore > props.bestScore) {
         props.bestScoreHandler(currentScore);
