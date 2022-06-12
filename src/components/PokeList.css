@@ -1,0 +1,7 @@
+.pokecard-container {
+  display: grid;
+  padding: 1em;
+  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+}

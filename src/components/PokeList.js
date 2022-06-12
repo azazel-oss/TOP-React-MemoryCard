@@ -1,9 +1,10 @@
 import React from "react";
 import Pokecard from "./Pokecard";
+import "./PokeList.css";
 
 const PokeList = (props) => {
   return (
-    <div>
+    <div className="pokecard-container">
       {props.pokemonList.map((pokemon) => {
         return (
           <Pokecard
