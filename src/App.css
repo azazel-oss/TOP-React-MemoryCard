@@ -20,12 +20,6 @@ footer {
   flex-shrink: 0;
 }
 
-main {
-  flex-grow: 1;
-  background-color: #e9b872;
-  color: #151515;
-}
-
 header {
   padding: 1em 3em;
   justify-content: space-between;
@@ -35,6 +29,63 @@ header {
 .logo {
   font-size: 3rem;
   font-weight: 900;
+}
+
+main {
+  flex-grow: 1;
+  background-color: #e9b872;
+  color: #151515;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #151515;
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.restart-modal {
+  background-color: #e9b872;
+  font-size: 2rem;
+  padding: 2em;
+  border-radius: 25px;
+}
+
+.message {
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.best-score {
+  font-size: 1.2rem;
+}
+
+main button {
+  background-color: #a63d40;
+  color: #e9b872;
+  font-family: "Nunito";
+  font-weight: 700;
+  border: none;
+  padding: 0.8em 2em;
+  font-size: 1rem;
+  border-radius: 15px;
+  margin: 1.2em 0;
+  transition: ease-out 0.1s transform;
+}
+
+main button:hover,
+main button:focus {
+  background-color: #90a959;
+  color: #151515;
+  outline: 2px solid #151515;
+  transform: scale(1.1);
 }
 
 footer {

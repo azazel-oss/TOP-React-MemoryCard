@@ -35,8 +35,17 @@ function App() {
       </header>
       {isGameFinished ? (
         <main>
-          Game is Over
-          <button onClick={toggleGameFinishStatus}>Restart?</button>
+          <div className="overlay">
+            <div className="restart-modal">
+              <div className="message">Game Over</div>
+              <div className="points">
+                You scored {currentScore}{" "}
+                {currentScore === 1 ? "point" : "points"}
+              </div>
+              <button onClick={toggleGameFinishStatus}>Restart?</button>
+              <div className="best-score">Best score: {bestScore}</div>
+            </div>
+          </div>
         </main>
       ) : (
         <Game
