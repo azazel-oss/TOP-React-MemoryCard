@@ -22,6 +22,8 @@ footer {
 
 main {
   flex-grow: 1;
+  background-color: #e9b872;
+  color: #151515;
 }
 
 header {

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import PokeList from "./PokeList";
 import randomizeArray from "../utils/RandomizeArray";
+import "./Game.css";
 
 const Game = (props) => {
   const [pokemons, setPokemons] = useState([]);
@@ -44,7 +45,7 @@ const Game = (props) => {
   }, []);
   return (
     <main>
-      <div>Who's that pokemon?</div>
+      <div className="game-label">Remember the pokemons you click, Okay?</div>
       <PokeList
         pokemonList={pokemons}
         pokemonClickHandler={handlePokemonClick}
