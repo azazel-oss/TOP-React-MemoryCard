@@ -11,6 +11,7 @@ const PokeList = (props) => {
             id={pokemon.id}
             key={pokemon.id}
             image={pokemon.image}
+            clickHandler={props.pokemonClickHandler}
           />
         );
       })}
