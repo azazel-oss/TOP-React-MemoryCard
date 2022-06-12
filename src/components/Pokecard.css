@@ -1,0 +1,25 @@
+.pokecard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #a63d40;
+  border-radius: 10px;
+
+  width: 15em;
+  background-color: #90a959;
+}
+
+.pokecard:hover,
+.pokecard:focus {
+  border-color: #151515;
+  background-color: #a63d40;
+  color: #e9b872;
+}
+
+.name {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
