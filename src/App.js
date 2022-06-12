@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Game from "./components/Game";
 import Scoreboard from "./components/Scoreboard";
 
@@ -6,10 +6,17 @@ function App() {
   const [bestScore, setBestScore] = useState(0);
   const [currentScore, setCurrentScore] = useState(0);
   const [isGameFinished, setIsGameFinished] = useState(false);
+  useEffect(() => {
+    const storedBestScore = localStorage.getItem("bestScorePokeMemo");
+    if (storedBestScore) {
+      setBestScore(Number.parseInt(storedBestScore));
+    }
+  }, []);
   function toggleGameFinishStatus() {
     if (!isGameFinished) {
       if (currentScore > bestScore) {
         setBestScore(currentScore);
+        localStorage.setItem("bestScorePokeMemo", currentScore.toString());
       }
     } else {
       setCurrentScore(0);
