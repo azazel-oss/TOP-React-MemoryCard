@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/TOP-React-MemoryCard/static/css/main.8e139948.css",
+    "main.js": "/TOP-React-MemoryCard/static/js/main.eaa6400f.js",
+    "index.html": "/TOP-React-MemoryCard/index.html",
+    "main.8e139948.css.map": "/TOP-React-MemoryCard/static/css/main.8e139948.css.map",
+    "main.eaa6400f.js.map": "/TOP-React-MemoryCard/static/js/main.eaa6400f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8e139948.css",
+    "static/js/main.eaa6400f.js"
+  ]
+}
