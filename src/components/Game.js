@@ -1,26 +1,21 @@
 import React, { useState, useEffect } from "react";
-import Scoreboard from "./Scoreboard";
 import PokeList from "./PokeList";
 import randomizeArray from "../utils/RandomizeArray";
 
 const Game = (props) => {
   const [pokemons, setPokemons] = useState([]);
-  const [currentScore, setCurrentScore] = useState(0);
   const [rememberedPokemons, setRememberedPokemons] = useState([]);
 
   function handlePokemonClick(id) {
-    console.log(id);
     if (!rememberedPokemons.includes(id)) {
       setRememberedPokemons((prevState) => [...prevState, id]);
-      setCurrentScore((prevState) => prevState + 1);
       setPokemons((prevState) => randomizeArray(prevState));
+      props.scoreUpdateHandler();
     } else {
-      if (currentScore > props.bestScore) {
-        props.bestScoreHandler(currentScore);
-        props.endGameHandler();
-      }
+      props.endGameHandler();
     }
   }
+
   useEffect(() => {
     let randomArray = [];
     while (randomArray.length < 20) {
@@ -48,20 +43,13 @@ const Game = (props) => {
     getPokemons(randomArray).then((data) => setPokemons(data));
   }, []);
   return (
-    <div>
-      <header>
-        <div>Memory Card</div>
-        <Scoreboard bestScore={props.bestScore} currentScore={currentScore} />
-      </header>
-      <main>
-        <div>Who's that pokemon?</div>
-        <PokeList
-          pokemonList={pokemons}
-          pokemonClickHandler={handlePokemonClick}
-        />
-      </main>
-      <footer>Copyright &copy; Asad Mahmood</footer>
-    </div>
+    <main>
+      <div>Who's that pokemon?</div>
+      <PokeList
+        pokemonList={pokemons}
+        pokemonClickHandler={handlePokemonClick}
+      />
+    </main>
   );
 };
 

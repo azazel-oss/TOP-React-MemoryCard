@@ -2,7 +2,6 @@ import React from "react";
 
 const Pokecard = (props) => {
   function handlePokemonClick() {
-    console.log(props.id);
     props.clickHandler(props.id);
   }
   return (
