@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
 
 function App() {
+  const [pokemons, setPokemons] = useState([]);
+  useEffect(() => {
+    let randomArray = [];
+    while (randomArray.length < 20) {
+      let num = Math.floor(Math.random() * 150 + 1);
+      if (!randomArray.includes(num)) {
+        randomArray.push(num);
+      }
+    }
+    async function getPokemons(pokemonArray) {
+      const pokemons = await Promise.all(
+        pokemonArray.map(async (pokeId) => {
+          const result = await fetch(
+            "https://pokeapi.co/api/v2/pokemon/" + pokeId
+          );
+          const data = await result.json();
+          return {
+            id: data.id,
+            name: data.name,
+            image: data.sprites.front_default,
+          };
+        })
+      );
+      return pokemons;
+    }
+    getPokemons(randomArray).then((data) => setPokemons(data));
+  }, []);
+
+  console.log(pokemons);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <header>This is header content</header>
+      <main>This is main content</main>
+      <footer>Copyright &copy; Asad Mahmood</footer>
     </div>
   );
 }
