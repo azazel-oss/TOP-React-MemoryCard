@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Game from "./components/Game";
 import Scoreboard from "./components/Scoreboard";
+import "./App.css";
 
 function App() {
   const [bestScore, setBestScore] = useState(0);
@@ -27,9 +28,9 @@ function App() {
     setCurrentScore((prevState) => prevState + 1);
   }
   return (
-    <div>
+    <div className="container">
       <header>
-        <div>Memory Card</div>
+        <div className="logo">Memory Card</div>
         <Scoreboard bestScore={bestScore} currentScore={currentScore} />
       </header>
       {isGameFinished ? (
